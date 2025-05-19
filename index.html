@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hotel Booking</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav id="mainNavbar" class="navbar navbar-expand-md sticky-top navbar-dark px-4 px-md-5 py-3 navbar-custom">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <img src="images/logo.svg" alt="Logo" height="36" class="filter-white">
+      </a>
+
+      <button class="navbar-toggler border-0" type="button" onclick="toggleMobileMenu()">
+        <img src="images/menuIcon.svg" alt="Menu" style="filter: invert(1); height: 24px;">
+      </button>
+
+      <div class="collapse navbar-collapse d-none d-md-flex justify-content-between align-items-center w-100">
+        <ul class="navbar-nav me-auto gap-4">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Hotels</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+        </ul>
+        <div class="d-flex align-items-center gap-3">
+          <img src="images/searchIcon.svg" alt="Search" height="24" class="filter-white">
+          <button class="btn btn-outline-light btn-sm">Dashboard</button>
+          <button class="btn btn-light btn-sm px-4">Login</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="d-md-none position-fixed top-0 start-0 w-100 h-100 bg-white text-center d-none z-3">
+    <button onclick="toggleMobileMenu()" class="btn-close position-absolute top-0 end-0 m-3"></button>
+    <div class="d-flex flex-column mt-5 gap-3">
+      <a href="/" onclick="toggleMobileMenu()">Home</a>
+      <a href="/" onclick="toggleMobileMenu()">Hotels</a>
+      <a href="/" onclick="toggleMobileMenu()">Experience</a>
+      <a href="/" onclick="toggleMobileMenu()">About</a>
+      <button class="btn btn-outline-dark" onclick="toggleMobileMenu()">Dashboard</button>
+      <button class="btn btn-dark">Login</button>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero d-flex flex-column justify-content-center text-white px-4 px-md-5">
+    <div class="container">
+      <h1 class="display-4 fw-bold">Welcome to Paradise</h1>
+      <p class="lead">Discover the world's best destinations curated just for you.</p>
+      <a href="" class="btn btn-light mt-3">Explore Now</a>
+
+      <!-- Search Form -->
+      <form class="bg-white text-secondary rounded p-4 mt-4 d-flex flex-column flex-md-row gap-3 shadow-lg">
+        <div>
+          <label for="destinationInput" class="form-label">Destination</label>
+          <input class="form-control form-control-sm" list="destinations" id="destinationInput" placeholder="Type here" required>
+          <datalist id="destinations">
+            <option value="New York"></option>
+            <option value="Paris"></option>
+            <option value="Tokyo"></option>
+          </datalist>
+        </div>
+        <div>
+          <label for="checkIn" class="form-label">Check in</label>
+          <input type="date" class="form-control form-control-sm" id="checkIn">
+        </div>
+        <div>
+          <label for="checkOut" class="form-label">Check out</label>
+          <input type="date" class="form-control form-control-sm" id="checkOut">
+        </div>
+        <div>
+          <label for="guests" class="form-label">Guests</label>
+          <input type="number" class="form-control form-control-sm" id="guests" min="1" max="4" placeholder="0">
+        </div>
+        <div class="d-flex align-items-end">
+          <button type="submit" class="btn btn-dark">
+            <img src="images/searchIcon.svg" alt="search" style="height: 20px;"> Search
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Featured Section -->
+  <section class="section-bg py-5 px-4 text-center">
+    <div class="title-section text-center mb-4">
+      <h1 class="playfair">Featured Destination</h1>
+      <p class="text-secondary mt-2 mx-auto" style="max-width: 700px;">
+        Discover our handpicked selection of exceptional properties around the world.
+      </p>
+    </div>
+
+    <div class="container mt-5">
+      <div class="row g-4">
+        <!-- Card Template -->
+        <!-- Repeat for each hotel -->
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="hotel-card shadow-sm">
+            <img src="images/roomImg1.png" alt="Hotel" class="hotel-image">
+            <div class="badge-best">Best Seller</div>
+            <div class="p-3 text-start">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <p class="playfair fw-medium mb-0">Hotel Name</p>
+                <span class="text-warning"><img src="images/starIconFilled.svg" height="16"> 4.5</span>
+              </div>
+              <small class="text-muted"><img src="images/locationIcon.svg" height="16"> Paris, France</small>
+              <div class="d-flex justify-content-between align-items-center mt-2">
+                <p class="mb-0"><strong>Rs3500</strong> /night</p>
+                <button class="btn btn-outline-secondary btn-sm">Book</button>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="hotel-card shadow-sm">
+            <img src="images/roomImg2.png" alt="Hotel" class="hotel-image">
+            <div class="badge-best">Best Seller</div>
+            <div class="p-3 text-start">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <p class="playfair fw-medium mb-0">Hotel Name</p>
+                <span class="text-warning"><img src="images/starIconFilled.svg" height="16"> 4.5</span>
+              </div>
+              <small class="text-muted"><img src="images/locationIcon.svg" height="16"> Paris, France</small>
+              <div class="d-flex justify-content-between align-items-center mt-2">
+                <p class="mb-0"><strong>Rs3500</strong> /night</p>
+                <button class="btn btn-outline-secondary btn-sm">Book</button>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="hotel-card shadow-sm">
+            <img src="images/roomImg3.png" alt="Hotel" class="hotel-image">
+            <div class="badge-best">Best Seller</div>
+            <div class="p-3 text-start">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <p class="playfair fw-medium mb-0">Hotel Name</p>
+                <span class="text-warning"><img src="images/starIconFilled.svg" height="16"> 4.5</span>
+              </div>
+              <small class="text-muted"><img src="images/locationIcon.svg" height="16"> Paris, France</small>
+              <div class="d-flex justify-content-between align-items-center mt-2">
+                <p class="mb-0"><strong>Rs3500</strong> /night</p>
+                <button class="btn btn-outline-secondary btn-sm">Book</button>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="hotel-card shadow-sm">
+            <img src="images/roomImg4.png" alt="Hotel" class="hotel-image">
+            <div class="badge-best">Best Seller</div>
+            <div class="p-3 text-start">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <p class="playfair fw-medium mb-0">Hotel Name</p>
+                <span class="text-warning"><img src="images/starIconFilled.svg" height="16"> 4.5</span>
+              </div>
+              <small class="text-muted"><img src="images/locationIcon.svg" height="16"> Paris, France</small>
+              <div class="d-flex justify-content-between align-items-center mt-2">
+                <p class="mb-0"><strong>Rs3500</strong> /night</p>
+                <button class="btn btn-outline-secondary btn-sm">Book</button>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+       
+      </div>
+      <button class="btn btn-outline-secondary mt-5" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">View All</button>
+    </div>
+  </section>
+
+  <section class="exclusive-offers-section">
+
+   <div class="d-flex flex-column flex-md-row align-items-center justify-content-between mb-4" style="gap: 1rem;">
+  <div class="text-center text-md-start" style="max-width: 600px; flex: 1;">
+    <h2 class="mb-2" style="font-weight: 600;">Exclusive Offers</h2>
+    <p class="mb-0" style="font-weight: 500; padding-top: 20px;">
+      Take Advantage of our limited time offers and special packages to enhance your stay and create unforgettable memories.
+    </p>
+  </div>
+  <div>
+    <button class="btn btn-success px-4 py-2" style="border-radius: 30px; font-weight: 500;">
+      View All offers
+    </button>
+  </div>
+</div>
+
+
+
+    <div class="row g-4">
+
+      <!-- Example offer card 1 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="offer-card" style="background-image: url('images/exclusiveOfferCardImg1.png');">
+          <span class="price-badge">30% OFF</span>
+          <div>
+            <p class="offer-title">Luxury Suite</p>
+            <p class="offer-description">Enjoy a luxurious stay with ocean view and premium services.</p>
+            <p class="offer-expiry">Expire 31 Dec 2025</p>
+          </div>
+          <button class="btn-view-offer">
+            View Offer
+            <img src="images/arrowIcon.svg" alt="arrow icon" />
+          </button>
+        </div>
+      </div>
+
+      <!-- Example offer card 2 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="offer-card" style="background-image: url('images/exclusiveOfferCardImg2.png');">
+          <span class="price-badge">20% OFF</span>
+          <div>
+            <p class="offer-title">Weekend Getaway</p>
+            <p class="offer-description">Relax and unwind with our weekend package.</p>
+            <p class="offer-expiry">Expire 15 Jun 2025</p>
+          </div>
+          <button class="btn-view-offer">
+            View Offer
+            <img src="images/arrowIcon.svg" alt="arrow icon" />
+          </button>
+        </div>
+      </div>
+
+      <!-- Example offer card 3 -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="offer-card" style="background-image: url('images/exclusiveOfferCardImg3.png');">
+          <span class="price-badge">15% OFF</span>
+          <div>
+            <p class="offer-title">Family Package</p>
+            <p class="offer-description">Perfect for family trips with special kids activities.</p>
+            <p class="offer-expiry">Expire 30 Sep 2025</p>
+          </div>
+          <button class="btn-view-offer">
+            View Offer
+            <img src="images/arrowIcon.svg" alt="arrow icon" />
+          </button>
+        </div>
+      </div>
+
+      <!-- Add more cards here -->
+
+    </div>
+  </section>
+
+  <section class="newsletter-section bg-dark text-white rounded-3 px-4 py-5 mx-2 mx-lg-auto my-5" style="max-width: 900px;">
+  <div class="text-center mb-4">
+    <h2 class="fw-semibold">Stay Inspired</h2>
+    <p class="fw-medium">Join our newsletter and be the first to discover new destinations, exclusive offers, travel inspiration.</p>
+  </div>
+
+  <form class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-3 mt-3" onsubmit="return false;">
+    <input type="email" class="form-control bg-white bg-opacity-10 border border-white border-opacity-20 text-white" placeholder="Enter your email" style="max-width: 400px;" required />
+    <button type="submit" class="btn btn-dark d-flex align-items-center gap-2 px-4 py-2 rounded-3">
+      Subscribe
+      <img src="images/arrowIcon.svg" alt="arrow icon" style="width: 14px; filter: invert(1);" />
+    </button>
+  </form>
+
+  <p class="text-center text-muted small mt-4" style="max-width: 450px; margin-left: auto; margin-right: auto;">
+    By subscribing, you agree to our Privacy Policy and consent to receive updates.
+  </p>
+</section>
+<footer class="bg-light text-secondary pt-5 px-3 px-md-5">
+  <div class="container">
+    <div class="row gy-4 justify-content-between">
+      <!-- Logo & Description -->
+      <div class="col-12 col-md-6 col-lg-3">
+        <img src="images/logo.svg" alt="logo" class="mb-3" style="height: 36px; filter: invert(1); opacity: 0.8;">
+        <p class="small">
+          Discover the world’s most extraordinary places to stay—from boutique hotels to luxury villas and private islands.
+        </p>
+        <div class="d-flex gap-3 mt-3">
+          <img src="images/instagramIcon.svg" alt="Instagram" class="img-fluid" style="width: 24px;">
+          <img src="images/facebookIcon.svg" alt="Facebook" class="img-fluid" style="width: 24px;">
+          <img src="images/twitterIcon.svg" alt="Twitter" class="img-fluid" style="width: 24px;">
+          <img src="images/linkendinIcon.svg" alt="LinkedIn" class="img-fluid" style="width: 24px;">
+        </div>
+      </div>
+
+      <!-- Company Links -->
+      <div class="col-6 col-md-3 col-lg-2">
+        <h5 class="text-dark fw-semibold">COMPANY</h5>
+        <ul class="list-unstyled mt-3 small">
+          <li><a href="#" class="text-secondary text-decoration-none">About</a></li>
+          <li><a href="#" class="text-secondary text-decoration-none">Careers</a></li>
+          <li><a href="#" class="text-secondary text-decoration-none">Press</a></li>
+          <li><a href="#" class="text-secondary text-decoration-none">Blog</a></li>
+          <li><a href="#" class="text-secondary text-decoration-none">Partners</a></li>
+        </ul>
+      </div>
+
+      <!-- Support Links -->
+      <div class="col-6 col-md-3 col-lg-2">
+        <h5 class="text-dark fw-semibold">SUPPORT</h5>
+        <ul class="list-unstyled mt-3 small">
+          <li><a href="#" class="text-secondary text-decoration-none">Help Center</a></li>
+          <li><a href="#" class="text-secondary text-decoration-none">Safety Information</a></li>
+          <li><a href="#" class="text-secondary text-decoration-none">Cancellation Options</a></li>
+          <li><a href="#" class="text-secondary text-decoration-none">Contact Us</a></li>
+          <li><a href="#" class="text-secondary text-decoration-none">Accessibility</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <h5 class="text-dark fw-semibold">STAY UPDATED</h5>
+        <p class="mt-3 small">Subscribe to our newsletter for inspiration and special offers.</p>
+        <form class="d-flex mt-3">
+          <input type="email" class="form-control rounded-start" placeholder="Your email" required>
+          <button type="submit" class="btn btn-dark rounded-end d-flex align-items-center justify-content-center px-3">
+            <img src="images/arrowIcon.svg" alt="Subscribe" style="width: 14px;" />
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <hr class="border mt-5" />
+
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center py-3">
+      <p class="mb-2 mb-md-0 small">© 2025 Dhnaush H(1SI22EC024) Anirudh H S(1SI22EC004). All rights reserved.</p>
+      <ul class="list-inline mb-0 small">
+        <li class="list-inline-item"><a href="#" class="text-secondary text-decoration-none">Privacy</a></li>
+        <li class="list-inline-item"><a href="#" class="text-secondary text-decoration-none">Terms</a></li>
+        <li class="list-inline-item"><a href="#" class="text-secondary text-decoration-none">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+</body>
+</html>

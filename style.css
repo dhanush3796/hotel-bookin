@@ -1,0 +1,309 @@
+/* ========== Base Styles ========== */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  scroll-behavior: smooth;
+}
+
+/* ========== Navbar ========== */
+#mainNavbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+  z-index: 1050;
+  transition: all 0.4s ease;
+  display: flex;
+  justify-content: space-between;
+}
+.navbar-custom {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1050;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* subtle shadow */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+
+.nav-link-hover {
+  position: relative;
+  color: white !important;
+}
+
+.nav-link-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s;
+}
+
+.nav-link-hover:hover::after {
+  width: 100%;
+}
+
+.filter-white {
+  filter: brightness(0) invert(1);
+}
+
+/* Scrolled State for Navbar */
+.scrolled {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ========== Hero Section ========== */
+.hero {
+  background: url('images/heroImage.png') no-repeat center center / cover;
+  height: 100vh;
+  color: white;
+  position: relative;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* ========== Highlight Badge ========== */
+.highlight-badge {
+  background-color: rgba(73, 185, 255, 0.5);
+  padding: 6px 16px;
+  border-radius: 999px;
+  display: inline-block;
+  margin-top: 80px;
+  font-weight: 500;
+}
+
+/* ========== Mobile Menu ========== */
+#mobileMenu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: white;
+  width: 100%;
+  height: 100%;
+  z-index: 1100;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  transition: all 0.4s ease;
+}
+
+#mobileMenu.show {
+  display: flex;
+}
+
+.menu-toggle-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  #mobileMenu {
+    display: none !important;
+  }
+}
+
+/* ========== Section Background ========== */
+.section-bg {
+  background-color: #f8fafc;
+}
+
+/* ========== Featured Title Section ========== */
+.title-section h1 {
+  font-size: 2.25rem;
+  font-weight: 600;
+}
+
+.title-section p {
+  font-weight: 500;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ========== Hotel Cards ========== */
+.hotel-card {
+  max-width: 300px;
+  width: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.hotel-card:hover {
+  transform: translateY(-6px);
+}
+
+.hotel-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Badge */
+.badge-best {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: #fff;
+  color: #333;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Typography */
+.playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Buttons */
+.btn-outline-secondary {
+  transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #333;
+  color: white;
+  border-color: #333;
+}
+
+.offer-card {
+      position: relative;
+      color: white;
+      border-radius: 1rem;
+      padding: 3rem 1rem 1rem 1rem;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 320px;
+      transition: transform 0.3s ease;
+    }
+
+    .offer-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .price-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background-color: white;
+      color: #444;
+      font-weight: 500;
+      border-radius: 9999px;
+      padding: 0.25rem 1rem;
+      font-size: 0.8rem;
+    }
+
+    .offer-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+    }
+
+    .offer-description {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .offer-expiry {
+      font-size: 0.75rem;
+      opacity: 0.7;
+      margin-top: 0.5rem;
+    }
+
+    .btn-view-offer {
+      background: transparent;
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .btn-view-offer img {
+      filter: invert(1);
+      transition: transform 0.3s ease;
+    }
+
+    .btn-view-offer:hover img {
+      transform: translateX(6px);
+    }
+
+    /* Container paddings */
+    .exclusive-offers-section {
+      padding-top: 5rem;
+      padding-bottom: 7.5rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .exclusive-offers-section {
+        padding-left: 4rem;
+        padding-right: 4rem;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .exclusive-offers-section {
+        padding-left: 6rem;
+        padding-right: 6rem;
+      }
+    }
+
+    .newsletter-section input::placeholder {
+  color: white !important;
+  opacity: 1; /* ensure full opacity */
+}
+.testimonial-section {
+  background-color: #f8fafc; /* like Tailwind's slate-50 */
+}
+
+.card {
+  border-radius: 1rem;
+}
+
+.star-rating span {
+  font-size: 1.1rem;
+}
+
+footer img {
+  transition: opacity 0.3s;
+}
+footer img:hover {
+  opacity: 0.7;
+}
